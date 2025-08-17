@@ -40,7 +40,7 @@ export default function Header() {
                 <span className="text-[20px] font-bold text-white transition duration-300 group-hover:text-[#05AA87]">
                   로그인
                 </span>
-              </div>
+              </div>  
             </Link>
           )
         }
