@@ -3,18 +3,41 @@
 import Link from "next/link";
 import Image from "next/image";
 import Input from "@/components/input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Setting() {
   const [isOn, setIsOn] = useState(false);
 
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const initialIsDark = (stored ? stored === "dark" : prefersDark);
+      setIsOn(initialIsDark);
+    } catch (e) {}
+  }, []);
+
+  const applyTheme = (dark) => {
+    if (dark) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
+
   const handleToggle = () => {
-    setIsOn(!isOn);
+    setIsOn((prev) => {
+      const next = !prev;
+      applyTheme(next);
+      return next;
+    });
   };
 
   return (
-    <div className="w-full bg-[#F5F5F5] h-screen center">
-      <div className="w-[850px] h-[620px] rounded-[20px] bg-white shadow-lg mt-11 p-8">
+    <div className="w-full bg-[#F5F5F5] h-screen center dark:bg-[#0B0B0B]">
+      <div className="w-[850px] h-[620px] rounded-[20px] bg-white shadow-lg mt-11 p-8 dark:bg-[#151515] dark:text-white">
         <div className="w-full h-[30px] flex items-center">
           <p className="text-[24px] font-bold">프로필 설정</p>
         </div>
@@ -47,7 +70,7 @@ export default function Setting() {
         </div>
         <div className="w-full h-[45px] flex flex-row items-center mt-[50px]">
           <div className="w-[202px] h-full center flex-row gap-4 ml-auto">
-            <div className="w-[80px] h-full border-[1px] border-black/30 rounded-[10px] center cursor-pointer transition duration-200 hover:bg-[#ECECEC]">
+            <div className="w-[80px] h-full border-[1px] border-black/30 rounded-[10px] center cursor-pointer transition duration-200 hover:bg-[#ECECEC] dark:hover:bg-[#1E1E1E]">
               <p className="text-[14px]">취소</p>
             </div>
             <div className="w-[100px] h-full rounded-[10px] center bg-[#05AA87] cursor-pointer transition duration-200 hover:bg-[#028B6E]">
