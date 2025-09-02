@@ -32,4 +32,3 @@ export const formatTimeAgo = (isoString) => {
     return "방금 전";
   }
 };
-

@@ -189,4 +189,3 @@ export const changePassword = async (currentPassword, newPassword, confirmPasswo
     throw error;
   }
 };
-

@@ -24,4 +24,3 @@ export const toggleTheme = () => {
   applyTheme(newTheme);
   return newTheme;
 };
-

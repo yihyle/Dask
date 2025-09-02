@@ -57,4 +57,3 @@ export const updateLikedPosts = (postId, isLiked) => {
   }
   localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
 };
-
