@@ -19,15 +19,15 @@ export default function Postcard({ post }) {
           <div className="w-[40px] h-[25px] bg-[#00CF9E] rounded-[60px] center ml-6">
             <p className="text-[10px] font-semibold text-white">{post.category}</p>
           </div>
-          <p className="text-[14px] text-black/50 dark:text-white/60">{post.nickname} - {post.time}</p>
+          <p className="text-[14px] text-black/50 dark:text-white/60">익명 - {post.time}</p>
         </div>
 
         <div className="w-full h-[27px] flex flex-row items-center">
           <p className="text-[22px] text-black dark:text-white font-bold ml-7">{post.title}</p>
         </div>
 
-        <div className="w-full h-[22px] flex flex-row items-center">
-          <p className="text-[18px] text-black/70 dark:text-white/80 ml-7">{post.content}</p>
+        <div className="w-[50%] h-[22px] flex flex-row items-center">
+          <p className="text-[18px] text-black/70 dark:text-white/80 ml-7 overflow-hidden text-ellipsis whitespace-nowrap">{post.content}</p>
         </div>
 
         <div className="w-full h-[15px] flex flex-row items-center">

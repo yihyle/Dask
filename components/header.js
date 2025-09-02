@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useAuth } from "@/hooks";
 
 export default function Header() {
   const menu = [
@@ -8,8 +12,8 @@ export default function Header() {
     { name: "설정", path: "/setting" },
   ];
 
-  const isLogin = false;
-  const nickname = "2219";
+  const { isLogin, nickname, handleLogout } = useAuth();
+  const pathname = usePathname();
 
   return (
     <div className="w-screen h-[80px] backdrop-blur-sm bg-white/70 dark:bg-black/50 border-b border-b-black/30 dark:border-b-white/20 center flex-row fixed gap-[700px] z-[1]">
@@ -40,7 +44,7 @@ export default function Header() {
                 <span className="text-[20px] font-bold text-white transition duration-300 group-hover:text-[#05AA87] dark:group-hover:text-[#05AA87]">
                   로그인
                 </span>
-              </div>  
+              </div>
             </Link>
           )
         }

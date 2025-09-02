@@ -1,0 +1,1 @@
+export const API_BASE_URL = "https://fastapiserver-fp9o.onrender.com";
