@@ -5,29 +5,3 @@
 .center {
   @apply flex items-center justify-center;  
 }
-
-/* Smooth selection color */
-::selection {
-  background-color: rgba(5, 170, 135, 0.25);
-}
-.dark ::selection {
-  background-color: rgba(5, 170, 135, 0.35);
-}
-
-/* Subtle scrollbar styling */
-*::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-*::-webkit-scrollbar-thumb {
-  background-color: rgba(0,0,0,0.2);
-  border-radius: 8px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-}
-.dark *::-webkit-scrollbar-thumb {
-  background-color: rgba(255,255,255,0.2);
-}
