@@ -5,7 +5,7 @@ import Input from "@/components/input";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth, useTheme } from "@/hooks";
-import { changePassword } from "@/utils/api";
+import { changePassword } from "@/api";
 
 export default function Setting() {
   const router = useRouter();

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Input from "@/components/input";
 import { useRouter } from "next/navigation";
-import { login } from "@/utils/api";
+import { login } from "@/api";
 
 export default function Login() {
   const [studentId, setStudentId] = useState("");

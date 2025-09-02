@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { fetchComments, createComment, createReply, normalizeCommentData } from '@/utils/api';
+import { fetchComments, createComment, createReply, normalizeCommentData } from '@/api';
 import { formatTimeAgo } from '@/utils/time';
 import { handleAuthError } from '@/utils/auth';
 

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { fetchPosts, fetchPost, createPost, likePost, incrementViewCount, reportPost, normalizePostData } from '@/utils/api';
+import { fetchPosts, fetchPost, createPost, likePost, incrementViewCount, reportPost, normalizePostData } from '@/api';
 import { formatTimeAgo } from '@/utils/time';
 import { getLikedPosts, updateLikedPosts, handleAuthError } from '@/utils/auth';
 
