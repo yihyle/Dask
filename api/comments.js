@@ -3,24 +3,34 @@ import { http, API_BASE_URL, createAuthHeaders } from './client';
 export const normalizeCommentData = (comment, formatTimeAgo) => {
   return {
     ...comment,
-    time: comment.created_ago && comment.created_ago !== 'string' ? comment.created_ago : formatTimeAgo(comment.created_at),
+    time:
+      comment.created_ago && comment.created_ago !== 'string'
+        ? comment.created_ago
+        : formatTimeAgo(comment.created_at),
     replies: comment.replies || [],
   };
 };
 
 export const fetchComments = async (postId) => {
-  const res = await http.get(`${API_BASE_URL}/comments/post/${postId}`);
-  return res.data;
+  const url = `${API_BASE_URL}/comments/post/${postId}`;
+  const response = await http.get(url);
+  return response.data;
 };
 
 export const createComment = async (postId, content) => {
-  const res = await http.post(`${API_BASE_URL}/comments/post/${postId}`, { content: content.trim() }, { headers: createAuthHeaders() });
-  return res.data;
+  const url = `${API_BASE_URL}/comments/post/${postId}`;
+  const payload = { content: content.trim() };
+  const headers = createAuthHeaders();
+
+  const response = await http.post(url, payload, { headers });
+  return response.data;
 };
 
 export const createReply = async (commentId, content) => {
-  const res = await http.post(`${API_BASE_URL}/comments/${commentId}/reply`, { content: content.trim() }, { headers: createAuthHeaders() });
-  return res.data;
+  const url = `${API_BASE_URL}/comments/${commentId}/reply`;
+  const payload = { content: content.trim() };
+  const headers = createAuthHeaders();
+
+  const response = await http.post(url, payload, { headers });
+  return response.data;
 };
-
-
