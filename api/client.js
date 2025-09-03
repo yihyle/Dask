@@ -11,6 +11,4 @@ export const createAuthHeaders = () => {
   };
 };
 
-export const http = axios;
-
-
+export const http = axios; // http로 래핑
