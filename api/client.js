@@ -1,8 +1,7 @@
 import axios from 'axios';
-import { API_BASE_URL } from '@/constants/api';
 import { getAccessToken } from '@/utils/auth';
 
-export { API_BASE_URL };
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export const createAuthHeaders = () => {
   const token = getAccessToken();
