@@ -8,7 +8,7 @@ export const handleLogout = () => {
 };
 
 export const getAccessToken = () => {
-  return localStorage.getItem('accessToken') || sessionStorage.getItem('accessToken');
+  return localStorage.getItem('accessToken');
 };
 
 export const isLoggedIn = () => {
