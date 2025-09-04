@@ -5,10 +5,6 @@ export const handleLogout = () => {
   localStorage.removeItem('likedPosts');
   localStorage.setItem('isLogin', 'false');
   localStorage.removeItem('nickname');
-  
-  sessionStorage.removeItem('accessToken');
-  sessionStorage.removeItem('refreshToken');
-  sessionStorage.removeItem('user');
 };
 
 export const getAccessToken = () => {
